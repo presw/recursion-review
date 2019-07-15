@@ -5,9 +5,10 @@
 
 var stringifyJSON = function(obj) {
   // your code goes here
-//   if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') {
-//     return `"${obj}"`
-//   } else if (Array.isArray(obj)) {
-//     if (typeof obj === 'undefined' || typeof obj = 'function')
+//   if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean' || obj === null) {
+//     return `${obj}`
+//   }
+//   if (typeof obj === 'undefined' || typeof obj === 'function') {
+//     return null
 //   }
 };
