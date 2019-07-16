@@ -4,40 +4,25 @@
 // };
 
 // But instead we're going to implement it from scratch:
-var getElementsByClassName = function(className) {
-/*  your code here
-  iterate through DOM elements
-    if the element has children
-        pass element to func
-    if the element has className 
-        return element
-  var body;
+let getElementsByClassName = function(className) {
+  // your code here
+  let domArray;
   if (arguments.length === 1) {
-    body = document.body;
+    domArray = document.childNodes;
   } else {
-    body = arguments[1];
+    domArray = arguments[1];
   }
-  // var body = document.body
-  var output = [];
+  let output = [];
 
-  for (let i = 0; i < body.length; i++) {
-    if (body[i].hasChildNodes()) {
-      getElementsByClassName(className, body.childNodes[i]);
+  for (let i = 0; i < domArray.length; i++) {
+    if (typeof domArray[i] !== 'undefined' && typeof domArray[i].className !== 'undefined') {
+      if (typeof domArray[i].className === 'string' && domArray[i].className.includes(className)) {
+        output.push(domArray[i]);
+      }
     }
-    if (body[i].className === className) {
-      output.push(body[i]);
+    if (domArray[i].hasChildNodes()) {
+      output = output.concat(getElementsByClassName(className, domArray[i].childNodes));
     }
   }
-  
-  Working on what to return
-  return output.concat()
-  
-
-    
-    Goal:
-    build an array of elements that match className
-    then return output.concat(func)
-    
-    body.childNode[i].classList[r]*/
-    
+  return output;
 };
